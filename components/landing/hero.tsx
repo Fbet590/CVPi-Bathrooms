@@ -23,7 +23,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
         <h1 className="font-[family-name:var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance">
-          $15K Flat. New Kitchen. Cabinets, Countertops & Appliances Included. Done.
+          $24K Flat. New Bathroom. Cabinets, Countertops & Appliances Included. Done.
         </h1>
         <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
           We handle everything from design to install — you just enjoy the result.
@@ -40,15 +40,15 @@ export function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-6 mt-8 mb-8 md:mb-0">
           <div className="flex items-center gap-2 text-white/80">
             <Shield className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">Licensed & Insured</span>
+            <span className="text-sm font-medium text-white">Licensed & Insured</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
             <Clock className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">On-Time Guarantee</span>
+            <span className="text-sm font-medium text-white">On-Time Guarantee</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
             <Award className="w-5 h-5 text-primary" />
-            <span className="text-sm font-medium">5-Star Rated</span>
+            <span className="text-sm font-medium text-white">5-Star Rated</span>
           </div>
         </div>
       </div>

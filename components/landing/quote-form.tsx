@@ -166,10 +166,13 @@ export function QuoteForm() {
           {/* Form Header */}
           <div className="text-center mb-6">
             <h2 className="text-xl md:text-2xl font-bold text-card-foreground mb-2">
-              See If You Qualify for Our $15K All-In Kitchen Transformation
+              See If You Qualify for Our $24K All-In Bathroom Transformation
             </h2>
             <p className="text-muted-foreground text-sm md:text-base">
-              Answer our quick form and we&apos;ll get in touch. No Pressure. No Obligation. Less than 60 Seconds.
+              Answer our quick form and we&apos;ll get in touch.
+              <br />
+              <br />
+              No Obligation. Less than 60 Seconds.
             </p>
           </div>
           {/* Progress Bar */}
