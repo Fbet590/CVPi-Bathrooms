@@ -24,7 +24,7 @@ export function Services() {
     <section className="py-20 bg-muted">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12">
-          <p className="text-primary font-semibold mb-2">
+          <p className="text-[#02aaf7] font-semibold mb-2">
             Ready to Reimagine Your Home&apos;s Interior?
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -33,7 +33,7 @@ export function Services() {
           <Button 
             size="lg" 
             onClick={scrollToForm}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold"
+            className="bg-[rgba(1,172,250,0.9)] hover:bg-[rgba(1,172,250,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
           >
             Get a Free Quote
           </Button>
@@ -62,7 +62,7 @@ export function Services() {
         </div>
 
         <div className="mt-16 text-center">
-          <p className="text-primary font-semibold mb-2">
+          <p className="text-[#05adf9] font-semibold mb-2 text-xl">
             Ready to Reimagine Your Indoor Space?
           </p>
           <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
