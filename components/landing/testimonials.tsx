@@ -26,7 +26,7 @@ export function Testimonials() {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12">
-          <p className="text-primary font-semibold mb-2">
+          <p className="text-[#02acfa] font-semibold mb-2 text-xl">
             Don&apos;t Just Take Our Word For It...
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">

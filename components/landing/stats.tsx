@@ -39,7 +39,7 @@ function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string })
   }, [end])
 
   return (
-    <div ref={ref} className="font-serif text-6xl md:text-7xl font-bold text-primary">
+    <div ref={ref} className="font-serif text-6xl md:text-7xl font-bold text-[#02affd]">
       {count}{suffix}
     </div>
   )
@@ -55,9 +55,9 @@ export function Stats() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center">
           <AnimatedCounter end={10} suffix="+" />
-          <p className="text-lg text-muted-foreground mt-2 mb-10">Years Experience</p>
+          <p className="text-lg text-muted-foreground mt-2 mb-10 font-bold">Years Experience</p>
           
-          <p className="text-primary font-semibold mb-2">
+          <p className="text-[#02abf8] font-semibold mb-2 text-xl">
             Choosing a contractor doesn&apos;t have to be stressful.
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
@@ -70,7 +70,7 @@ export function Stats() {
           <Button 
             size="lg" 
             onClick={scrollToForm}
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg font-semibold"
+            className="bg-[rgba(3,171,248,0.9)] hover:bg-[rgba(3,171,248,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
           >
             Claim Your Free Estimate
           </Button>

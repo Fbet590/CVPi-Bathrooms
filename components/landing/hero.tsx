@@ -31,7 +31,7 @@ export function Hero() {
         <Button 
           size="lg" 
           onClick={scrollToForm}
-          className="bg-primary hover:bg-primary/90 text-primary-foreground text-xl px-8 py-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+          className="bg-[rgba(0,175,255,0.9)] hover:bg-[rgba(0,175,255,0.8)] text-primary-foreground text-xl px-8 py-6 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all"
         >
           Start Your Free Estimate
         </Button>
@@ -39,15 +39,15 @@ export function Hero() {
         {/* Trust Badges */}
         <div className="flex flex-wrap items-center justify-center gap-6 mt-8 mb-8 md:mb-0">
           <div className="flex items-center gap-2 text-white/80">
-            <Shield className="w-5 h-5 text-primary" />
+            <Shield className="w-5 h-5 text-[#03aefc]" />
             <span className="text-sm font-medium text-white">Licensed & Insured</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
-            <Clock className="w-5 h-5 text-primary" />
+            <Clock className="w-5 h-5 text-[#04aaf6]" />
             <span className="text-sm font-medium text-white">On-Time Guarantee</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
-            <Award className="w-5 h-5 text-primary" />
+            <Award className="w-5 h-5 text-[#06aaf4]" />
             <span className="text-sm font-medium text-white">5-Star Rated</span>
           </div>
         </div>

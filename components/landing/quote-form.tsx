@@ -179,7 +179,7 @@ export function QuoteForm() {
           <div className="mb-8">
             <div className="h-2 bg-muted rounded-full overflow-hidden">
               <div 
-                className="h-full bg-primary transition-all duration-300 ease-out"
+                className="h-full bg-[#05adf9] transition-all duration-300 ease-out"
                 style={{ width: `${progress}%` }}
               />
             </div>
