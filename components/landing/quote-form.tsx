@@ -170,32 +170,30 @@ export function QuoteForm() {
         >
 
           {/* Headline band */}
-          <div className="px-8 md:px-12 pt-10 pb-8 text-center">
-            <p
-              className="text-[10px] uppercase tracking-[0.25em] mb-4"
-              style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
-            >
-              Free Estimate
-            </p>
+          <div className="px-8 md:px-12 text-center" style={{ paddingTop: "9px", paddingBottom: "26px" }}>
             <h2
-              className="font-serif text-2xl md:text-3xl font-semibold text-balance leading-snug"
+              className="font-serif text-balance leading-snug"
               style={{
                 color: navyAccent,
                 letterSpacing: "0.06em",
                 fontFamily: "var(--font-cormorant, Georgia, serif)",
+                fontSize: "36px",
+                fontWeight: "800",
               }}
             >
               The Bathroom Package
             </h2>
             <p
-              className="mt-3 text-[11px] leading-relaxed"
+              className="mt-3 leading-relaxed"
               style={{
                 color: "#8a8a82",
                 letterSpacing: "0.04em",
                 fontFamily: "var(--font-poppins, sans-serif)",
+                fontSize: "12px",
+                fontWeight: "500",
               }}
             >
-              Answer a few quick questions&nbsp;&mdash;&nbsp;no obligation, less than 60&nbsp;seconds.
+              Answer our quick form&nbsp;&mdash;&nbsp;no obligation, less than 60&nbsp;seconds.
             </p>
           </div>
 
@@ -203,38 +201,91 @@ export function QuoteForm() {
           <div style={{ height: "1px", backgroundColor: navyAccent, opacity: 0.18 }} />
 
           {/* Features card */}
-          <div className="px-8 md:px-12 py-7">
+          <div className="px-8 md:px-12" style={{ paddingTop: "25px", paddingBottom: "12px" }}>
             <p
-              className="text-[9px] uppercase tracking-[0.22em] mb-4"
-              style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+              className="uppercase tracking-[0.22em] mb-4"
+              style={{
+                color: "#54544e",
+                fontFamily: "var(--font-poppins, sans-serif)",
+                fontSize: "12px",
+                fontWeight: "600",
+              }}
             >
               What&apos;s Included
             </p>
-            <ul className="space-y-3">
-              {[
-                "$24K all-in flat rate",
-                "Cabinets, countertops & fixtures",
-                "Licensed & insured crew",
-                "On-time guarantee",
-              ].map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
-                  <Check
-                    className="w-3.5 h-3.5 mt-0.5 flex-shrink-0"
-                    style={{ color: navyAccent }}
-                    strokeWidth={2.5}
-                  />
-                  <span
-                    className="text-[11px] leading-relaxed"
-                    style={{
-                      color: "#4a4a42",
-                      fontFamily: "var(--font-poppins, sans-serif)",
-                      letterSpacing: "0.02em",
-                    }}
-                  >
-                    {feature}
-                  </span>
-                </li>
-              ))}
+            <ul style={{ fontSize: "24px" }}>
+              <li className="flex items-start gap-3" style={{ marginBottom: "12px" }}>
+                <Check
+                  className="flex-shrink-0"
+                  style={{ color: navyAccent, width: "30px", height: "30px", marginTop: "2px" }}
+                  strokeWidth={2.5}
+                />
+                <span
+                  className="leading-relaxed"
+                  style={{
+                    color: "#4a4a42",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    letterSpacing: "0.02em",
+                    fontSize: "14px",
+                  }}
+                >
+                  $24K all-in flat rate
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ marginBottom: "12px" }}>
+                <Check
+                  className="flex-shrink-0"
+                  style={{ color: navyAccent, width: "30px", height: "30px", marginTop: "2px" }}
+                  strokeWidth={2.5}
+                />
+                <span
+                  className="leading-relaxed"
+                  style={{
+                    color: "#4a4a42",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    letterSpacing: "0.02em",
+                    fontSize: "14px",
+                  }}
+                >
+                  Cabinets, countertops & fixtures
+                </span>
+              </li>
+              <li className="flex items-start gap-3" style={{ marginBottom: "12px" }}>
+                <Check
+                  className="flex-shrink-0"
+                  style={{ color: navyAccent, width: "30px", height: "30px", marginTop: "2px" }}
+                  strokeWidth={2.5}
+                />
+                <span
+                  className="leading-relaxed"
+                  style={{
+                    color: "#4a4a42",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    letterSpacing: "0.02em",
+                    fontSize: "14px",
+                  }}
+                >
+                  Licensed &amp; Insured
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Check
+                  className="flex-shrink-0"
+                  style={{ color: navyAccent, width: "30px", height: "30px", marginTop: "2px" }}
+                  strokeWidth={2.5}
+                />
+                <span
+                  className="leading-relaxed"
+                  style={{
+                    color: "#4a4a42",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    letterSpacing: "0.02em",
+                    fontSize: "14px",
+                  }}
+                >
+                  On-time guarantee
+                </span>
+              </li>
             </ul>
           </div>
 
@@ -242,20 +293,30 @@ export function QuoteForm() {
           <div style={{ height: "1px", backgroundColor: navyAccent, opacity: 0.18 }} />
 
           {/* Form steps */}
-          <div className="px-8 md:px-12 pt-8 pb-10">
+          <div className="px-8 md:px-12" style={{ paddingTop: "37px", paddingBottom: "32px" }}>
 
             {/* Progress */}
             <div className="mb-8">
               <div className="flex items-center justify-between mb-2">
                 <span
-                  className="text-[9px] uppercase tracking-[0.2em]"
-                  style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+                  className="uppercase tracking-[0.2em]"
+                  style={{
+                    color: "#8a8a82",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                  }}
                 >
                   Step {currentStep + 1} of {steps.length}
                 </span>
                 <span
-                  className="text-[9px] uppercase tracking-[0.2em]"
-                  style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+                  className="uppercase tracking-[0.2em]"
+                  style={{
+                    color: "#8a8a82",
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                  }}
                 >
                   {Math.round(progress)}%
                 </span>
