@@ -177,7 +177,7 @@ export function QuoteForm() {
                 color: navyAccent,
                 letterSpacing: "0.06em",
                 fontFamily: "var(--font-cormorant, Georgia, serif)",
-                fontSize: "36px",
+                fontSize: "48px",
                 fontWeight: "800",
               }}
             >
@@ -186,10 +186,10 @@ export function QuoteForm() {
             <p
               className="mt-3 leading-relaxed"
               style={{
-                color: "#8a8a82",
+                color: "#4b4b47",
                 letterSpacing: "0.04em",
                 fontFamily: "var(--font-poppins, sans-serif)",
-                fontSize: "12px",
+                fontSize: "18px",
                 fontWeight: "500",
               }}
             >
@@ -207,7 +207,7 @@ export function QuoteForm() {
               style={{
                 color: "#54544e",
                 fontFamily: "var(--font-poppins, sans-serif)",
-                fontSize: "12px",
+                fontSize: "18px",
                 fontWeight: "600",
               }}
             >
@@ -226,7 +226,8 @@ export function QuoteForm() {
                     color: "#4a4a42",
                     fontFamily: "var(--font-poppins, sans-serif)",
                     letterSpacing: "0.02em",
-                    fontSize: "14px",
+                    fontSize: "18px",
+                    fontWeight: "700",
                   }}
                 >
                   $24K all-in flat rate
@@ -244,7 +245,8 @@ export function QuoteForm() {
                     color: "#4a4a42",
                     fontFamily: "var(--font-poppins, sans-serif)",
                     letterSpacing: "0.02em",
-                    fontSize: "14px",
+                    fontSize: "18px",
+                    fontWeight: "700",
                   }}
                 >
                   Cabinets, countertops & fixtures
@@ -262,7 +264,8 @@ export function QuoteForm() {
                     color: "#4a4a42",
                     fontFamily: "var(--font-poppins, sans-serif)",
                     letterSpacing: "0.02em",
-                    fontSize: "14px",
+                    fontSize: "18px",
+                    fontWeight: "700",
                   }}
                 >
                   Licensed &amp; Insured
@@ -280,7 +283,8 @@ export function QuoteForm() {
                     color: "#4a4a42",
                     fontFamily: "var(--font-poppins, sans-serif)",
                     letterSpacing: "0.02em",
-                    fontSize: "14px",
+                    fontSize: "18px",
+                    fontWeight: "700",
                   }}
                 >
                   On-time guarantee
@@ -337,11 +341,12 @@ export function QuoteForm() {
               {currentStep === 0 ? "Your Name" : currentStep === 1 ? "Email Address" : "Mobile Number"}
             </p>
             <p
-              className="text-sm mb-6 leading-snug"
+              className="mb-6 leading-snug"
               style={{
                 color: navyAccent,
                 fontFamily: "var(--font-poppins, sans-serif)",
                 letterSpacing: "0.01em",
+                fontSize: "20px",
               }}
             >
               {step.title}

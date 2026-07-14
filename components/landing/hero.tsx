@@ -40,15 +40,15 @@ export function Hero() {
         <div className="flex flex-wrap items-center justify-center gap-6 mt-8 mb-8 md:mb-0">
           <div className="flex items-center gap-2 text-white/80">
             <Shield className="w-5 h-5 text-[#03aefc]" />
-            <span className="text-sm font-medium text-white">Licensed & Insured</span>
+            <span className="font-medium text-white" style={{ fontSize: "18px" }}>Licensed & Insured</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
             <Clock className="w-5 h-5 text-[#04aaf6]" />
-            <span className="text-sm font-medium text-white">On-Time Guarantee</span>
+            <span className="font-medium text-white" style={{ fontSize: "18px" }}>On-Time Guarantee</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
             <Award className="w-5 h-5 text-[#06aaf4]" />
-            <span className="text-sm font-medium text-white">5-Star Rated</span>
+            <span className="font-medium text-white" style={{ fontSize: "18px" }}>5-Star Rated</span>
           </div>
         </div>
       </div>
