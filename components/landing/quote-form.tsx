@@ -2,8 +2,6 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { ChevronLeft, ChevronRight, Check } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -159,123 +157,270 @@ export function QuoteForm() {
 
   
 
+  const navyAccent = "#103a61"
+
   return (
-    <section id="quote-form" className="relative -mt-32 z-20 pb-20 bg-muted pt-4">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <div className="bg-card rounded-2xl shadow-xl p-6 md:p-8 font-[family-name:var(--font-poppins)]">
-          {/* Form Header */}
-          <div className="text-center mb-6">
-            <h2 className="text-xl md:text-2xl font-bold text-card-foreground mb-2">
-              See If You Qualify for Our $24K All-In Bathroom Transformation
-            </h2>
-            <p className="text-muted-foreground text-sm md:text-base">
-              Answer our quick form and we&apos;ll get in touch.
-              <br />
-              <br />
-              No Obligation. Less than 60 Seconds.
-            </p>
-          </div>
-          {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="h-2 bg-muted rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-[#05adf9] transition-all duration-300 ease-out"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <p className="text-sm text-muted-foreground mt-2 text-center">
-              Step {currentStep + 1} of {steps.length}
-            </p>
-          </div>
+    <section id="quote-form" className="relative -mt-32 z-20 pb-24 bg-muted pt-4">
+      <div className="container mx-auto px-4 max-w-xl">
 
-          {/* Question */}
-          <h3 className="text-xl font-semibold text-card-foreground mb-6 text-center">
-            {step.title}
-          </h3>
+        {/* Panel */}
+        <div
+          className="bg-[#fafaf8]"
+          style={{ borderTop: `1px solid ${navyAccent}`, borderBottom: `1px solid ${navyAccent}` }}
+        >
 
-          {/* Options or Input */}
-          <div className="space-y-3 mb-8">
-            {step.type === "single" || step.type === "multi" ? (
-              step.options?.map((option) => {
-                const isSelected = step.type === "multi"
-                  ? ((answers[currentStep] as string[]) || []).includes(option)
-                  : answers[currentStep] === option
-
-                return (
-                  <button
-                    key={option}
-                    onClick={() => handleOptionSelect(option)}
-                    className={cn(
-                      "w-full p-4 rounded-lg border-2 text-left transition-all",
-                      isSelected
-                        ? "border-primary bg-primary/10 text-foreground"
-                        : "border-border bg-background hover:border-primary/50 text-foreground"
-                    )}
-                  >
-                    <span className="flex items-center gap-3">
-                      <span className={cn(
-                        "w-5 h-5 rounded-full border-2 flex items-center justify-center flex-shrink-0",
-                        isSelected ? "border-primary bg-primary" : "border-muted-foreground"
-                      )}>
-                        {isSelected && <Check className="w-3 h-3 text-primary-foreground" />}
-                      </span>
-                      {option}
-                    </span>
-                  </button>
-                )
-              })
-            ) : (
-              <div className="space-y-2">
-                <Input
-                  type={step.type === "tel" ? "text" : step.type}
-                  placeholder={step.placeholder}
-                  value={(answers[currentStep] as string) || ""}
-                  onChange={(e) => handleInputChange(e.target.value)}
-                  className={cn(
-                    "w-full p-4 text-lg",
-                    errors[currentStep] && "border-destructive focus-visible:ring-destructive"
-                  )}
-                />
-                {errors[currentStep] && (
-                  <p className="text-sm text-destructive">{errors[currentStep]}</p>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Navigation */}
-          <div className="flex justify-between gap-4">
-            <Button
-              variant="outline"
-              onClick={goPrev}
-              disabled={currentStep === 0}
-              className="flex-1"
+          {/* Headline band */}
+          <div className="px-8 md:px-12 pt-10 pb-8 text-center">
+            <p
+              className="text-[10px] uppercase tracking-[0.25em] mb-4"
+              style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
             >
-              <ChevronLeft className="w-4 h-4 mr-2" />
-              Previous
-            </Button>
-            
-            {currentStep < steps.length - 1 ? (
-              <Button
-                onClick={goNext}
-                disabled={!canProceed()}
-                className="flex-1 bg-primary hover:bg-primary/90"
+              Free Estimate
+            </p>
+            <h2
+              className="font-serif text-2xl md:text-3xl font-semibold text-balance leading-snug"
+              style={{
+                color: navyAccent,
+                letterSpacing: "0.06em",
+                fontFamily: "var(--font-cormorant, Georgia, serif)",
+              }}
+            >
+              The Bathroom Package
+            </h2>
+            <p
+              className="mt-3 text-[11px] leading-relaxed"
+              style={{
+                color: "#8a8a82",
+                letterSpacing: "0.04em",
+                fontFamily: "var(--font-poppins, sans-serif)",
+              }}
+            >
+              Answer a few quick questions&nbsp;&mdash;&nbsp;no obligation, less than 60&nbsp;seconds.
+            </p>
+          </div>
+
+          {/* Hairline */}
+          <div style={{ height: "1px", backgroundColor: navyAccent, opacity: 0.18 }} />
+
+          {/* Features card */}
+          <div className="px-8 md:px-12 py-7">
+            <p
+              className="text-[9px] uppercase tracking-[0.22em] mb-4"
+              style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+            >
+              What&apos;s Included
+            </p>
+            <ul className="space-y-3">
+              {[
+                "$24K all-in flat rate",
+                "Cabinets, countertops & fixtures",
+                "Licensed & insured crew",
+                "On-time guarantee",
+              ].map((feature) => (
+                <li key={feature} className="flex items-start gap-3">
+                  <Check
+                    className="w-3.5 h-3.5 mt-0.5 flex-shrink-0"
+                    style={{ color: navyAccent }}
+                    strokeWidth={2.5}
+                  />
+                  <span
+                    className="text-[11px] leading-relaxed"
+                    style={{
+                      color: "#4a4a42",
+                      fontFamily: "var(--font-poppins, sans-serif)",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Hairline */}
+          <div style={{ height: "1px", backgroundColor: navyAccent, opacity: 0.18 }} />
+
+          {/* Form steps */}
+          <div className="px-8 md:px-12 pt-8 pb-10">
+
+            {/* Progress */}
+            <div className="mb-8">
+              <div className="flex items-center justify-between mb-2">
+                <span
+                  className="text-[9px] uppercase tracking-[0.2em]"
+                  style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+                >
+                  Step {currentStep + 1} of {steps.length}
+                </span>
+                <span
+                  className="text-[9px] uppercase tracking-[0.2em]"
+                  style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+                >
+                  {Math.round(progress)}%
+                </span>
+              </div>
+              <div className="h-[2px] w-full bg-[#e8e8e0] overflow-hidden">
+                <div
+                  className="h-full transition-all duration-300 ease-out"
+                  style={{ width: `${progress}%`, backgroundColor: navyAccent }}
+                />
+              </div>
+            </div>
+
+            {/* Question label */}
+            <p
+              className="text-[9px] uppercase tracking-[0.22em] mb-3"
+              style={{ color: "#8a8a82", fontFamily: "var(--font-poppins, sans-serif)" }}
+            >
+              {currentStep === 0 ? "Your Name" : currentStep === 1 ? "Email Address" : "Mobile Number"}
+            </p>
+            <p
+              className="text-sm mb-6 leading-snug"
+              style={{
+                color: navyAccent,
+                fontFamily: "var(--font-poppins, sans-serif)",
+                letterSpacing: "0.01em",
+              }}
+            >
+              {step.title}
+            </p>
+
+            {/* Input / Options */}
+            <div className="mb-8">
+              {step.type === "single" || step.type === "multi" ? (
+                <div className="space-y-3">
+                  {step.options?.map((option) => {
+                    const isSelected = step.type === "multi"
+                      ? ((answers[currentStep] as string[]) || []).includes(option)
+                      : answers[currentStep] === option
+                    return (
+                      <button
+                        key={option}
+                        onClick={() => handleOptionSelect(option)}
+                        className="w-full text-left transition-all py-3 px-0 flex items-center gap-3 group"
+                        style={{ borderBottom: "1px solid #e8e8e0" }}
+                      >
+                        <span
+                          className="w-4 h-4 flex-shrink-0 flex items-center justify-center border"
+                          style={{
+                            borderColor: isSelected ? navyAccent : "#c8c8be",
+                            backgroundColor: isSelected ? navyAccent : "transparent",
+                          }}
+                        >
+                          {isSelected && <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />}
+                        </span>
+                        <span
+                          className="text-[11px] tracking-wide"
+                          style={{
+                            color: isSelected ? navyAccent : "#4a4a42",
+                            fontFamily: "var(--font-poppins, sans-serif)",
+                            letterSpacing: "0.03em",
+                          }}
+                        >
+                          {option}
+                        </span>
+                      </button>
+                    )
+                  })}
+                </div>
+              ) : (
+                <div>
+                  <input
+                    type={step.type === "tel" ? "text" : step.type}
+                    placeholder={step.placeholder}
+                    value={(answers[currentStep] as string) || ""}
+                    onChange={(e) => handleInputChange(e.target.value)}
+                    className="w-full bg-transparent outline-none py-3 text-sm placeholder:text-[#b0b0a8] transition-all"
+                    style={{
+                      borderBottom: `1px solid ${errors[currentStep] ? "#c0392b" : navyAccent}`,
+                      color: navyAccent,
+                      fontFamily: "var(--font-poppins, sans-serif)",
+                      letterSpacing: "0.02em",
+                    }}
+                    onFocus={(e) => {
+                      if (!errors[currentStep]) {
+                        e.currentTarget.style.borderBottomWidth = "2px"
+                      }
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderBottomWidth = "1px"
+                    }}
+                  />
+                  {errors[currentStep] && (
+                    <p
+                      className="mt-2 text-[10px] tracking-wide"
+                      style={{ color: "#c0392b", fontFamily: "var(--font-poppins, sans-serif)" }}
+                    >
+                      {errors[currentStep]}
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between gap-4">
+              {/* Back — text link style */}
+              <button
+                onClick={goPrev}
+                disabled={currentStep === 0}
+                className="flex items-center gap-1 transition-opacity disabled:opacity-0"
+                style={{
+                  color: navyAccent,
+                  fontFamily: "var(--font-poppins, sans-serif)",
+                  fontSize: "10px",
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                }}
               >
-                Next
-                <ChevronRight className="w-4 h-4 ml-2" />
-              </Button>
-            ) : (
-              <Button
-                onClick={handleSubmit}
-                disabled={!canProceed() || isSubmitting}
-                className={cn(
-                  "flex-1 bg-primary hover:bg-primary/90",
-                  isSubmitting && "pointer-events-none opacity-70"
-                )}
-              >
-                {isSubmitting ? "Submitting..." : "Get My Free Quote"}
-              </Button>
-            )}
+                <ChevronLeft className="w-3 h-3" strokeWidth={1.5} />
+                Back
+              </button>
+
+              {/* Next / Submit — outlined Tiffany-record style */}
+              {currentStep < steps.length - 1 ? (
+                <button
+                  onClick={goNext}
+                  disabled={!canProceed()}
+                  className="flex items-center gap-1.5 px-7 py-2.5 transition-all disabled:opacity-30"
+                  style={{
+                    border: `1px solid ${navyAccent}`,
+                    color: navyAccent,
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    fontSize: "10px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  Continue
+                  <ChevronRight className="w-3 h-3" strokeWidth={1.5} />
+                </button>
+              ) : (
+                <button
+                  onClick={handleSubmit}
+                  disabled={!canProceed() || isSubmitting}
+                  className={cn(
+                    "flex items-center gap-1.5 px-7 py-2.5 transition-all disabled:opacity-30",
+                    isSubmitting && "pointer-events-none opacity-50"
+                  )}
+                  style={{
+                    border: `1px solid ${navyAccent}`,
+                    color: navyAccent,
+                    fontFamily: "var(--font-poppins, sans-serif)",
+                    fontSize: "10px",
+                    letterSpacing: "0.18em",
+                    textTransform: "uppercase",
+                    backgroundColor: "transparent",
+                  }}
+                >
+                  {isSubmitting ? "Sending\u2026" : "Get My Free Quote"}
+                  {!isSubmitting && <ChevronRight className="w-3 h-3" strokeWidth={1.5} />}
+                </button>
+              )}
+            </div>
+
           </div>
         </div>
       </div>
