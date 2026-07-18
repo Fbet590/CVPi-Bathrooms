@@ -1,84 +1,37 @@
 "use client"
 
-import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80)
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
-
   const scrollToForm = () => {
-    setMenuOpen(false)
     document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={{
-        backgroundColor: scrolled ? "#0d0f12" : "transparent",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
-      }}
-    >
-      <div className="container mx-auto px-6 md:px-10 flex justify-end h-16 md:h-20 items-center">
-        {/* Hamburger only */}
-        <button
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="text-white transition-opacity hover:opacity-70"
-        >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
-      </div>
-
-      {/* Mobile / full-screen menu drawer */}
-      {menuOpen && (
-        <div
-          className="fixed inset-0 z-40 flex flex-col items-start justify-center px-10"
-          style={{ backgroundColor: "#0d0f12" }}
-        >
-          <button
-            aria-label="Close menu"
-            onClick={() => setMenuOpen(false)}
-            className="absolute top-5 right-6 text-white/60 hover:text-white"
-          >
-            <X className="w-6 h-6" />
-          </button>
-          <nav className="space-y-8">
-            {["Kitchen", "Bathroom", "Projects", "Reviews", "FAQ"].map((label) => (
-              <div key={label}>
-                <button
-                  onClick={() => setMenuOpen(false)}
-                  className="block text-white/80 hover:text-white transition-colors"
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "clamp(28px, 5vw, 48px)",
-                    fontWeight: 900,
-                    textTransform: "uppercase",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1,
-                  }}
-                >
-                  {label}
-                </button>
-              </div>
-            ))}
-          </nav>
-          <button
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white backdrop-blur-sm border-b border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <div className="flex items-center gap-3">
+            <div className="relative h-[54px] w-[54px] md:h-[62px] md:w-[62px]">
+              <Image
+                src="/images/logo.png"
+                alt="CV Remodeling & Outdoor Living Logo"
+                fill
+                className="object-contain"
+                style={{ filter: 'drop-shadow(0 0 0 transparent)' }}
+              />
+            </div>
+          </div>
+          
+          <Button 
             onClick={scrollToForm}
-            className="pill-ghost text-white mt-16"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
           >
-            <span className="text-white">Free Estimate</span>
-            <span className="text-white/60 text-base leading-none">→</span>
-          </button>
+            Free Estimate
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   )
 }
