@@ -43,35 +43,29 @@ export function Services() {
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
+          {services.slice(1).map((service, index) => (
             <Reveal
               key={service.title}
               delay={index * 120}
               className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover-lift"
             >
-              {index > 0 && (
-                <>
-                  <div className="h-64 overflow-hidden">
-                    <div 
-                      className="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
-                      style={{ backgroundImage: `url('${service.image}')` }}
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="font-serif text-2xl font-bold text-card-foreground mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </>
-              )}
+              <div className="h-64 overflow-hidden">
+                <div 
+                  className="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{ backgroundImage: `url('${service.image}')` }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="font-serif text-2xl font-bold text-card-foreground mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </Reveal>
           ))}
         </div>
-
-
       </div>
     </section>
   )
