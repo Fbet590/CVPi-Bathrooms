@@ -46,7 +46,7 @@ export function Hero() {
 
       {/* Content — pinned lower-left, left aligned (Koenigsegg style) */}
       <div
-        className="relative z-10 container mx-auto px-6 md:px-10 pb-12 md:pb-32"
+        className="relative z-10 container mx-auto px-6 md:px-10 pt-12 md:pt-0 pb-[120px] md:pb-32"
         style={{
           transform: `translateY(${offsetY * 0.12}px)`,
           opacity: Math.max(1 - offsetY / 650, 0),
@@ -61,7 +61,7 @@ export function Hero() {
           <div className="min-w-0">
             {/* Eyebrow */}
             <p
-              className="animate-hero-rise mb-4 text-[10px] md:text-sm font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#3ec3ff] text-pretty"
+              className="animate-hero-rise mb-4 text-[14px] md:text-sm font-semibold uppercase tracking-[0.2em] md:tracking-[0.3em] text-[#3ec3ff] text-pretty"
               style={{ animationDelay: "0.05s" }}
             >
               Bathroom Remodeling — Done Right
@@ -73,7 +73,7 @@ export function Hero() {
                 <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
                   <span
                     className="animate-word-rise"
-                    style={{ animationDelay: `${0.15 + i * 0.12}s` }}
+                    style={{ animationDelay: `${0.15 + i * 0.12}s`, fontSize: "48px" }}
                   >
                     {word}
                   </span>
@@ -82,8 +82,8 @@ export function Hero() {
             </h1>
 
             <p
-              className="animate-hero-rise text-base md:text-2xl text-white/85 mb-8 max-w-xl leading-relaxed text-pretty"
-              style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.1}s` }}
+              className="animate-hero-rise md:text-2xl mb-8 max-w-xl leading-relaxed text-pretty text-white font-light"
+              style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.1}s`, fontSize: "20px" }}
             >
               Vanity, countertops &amp; a custom shower. We handle everything from
               design to install — you just enjoy the result.
