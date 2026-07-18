@@ -189,6 +189,54 @@
   animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
+/* Word-by-word headline reveal (clip up from below) */
+@keyframes word-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(110%) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+.animate-word-rise {
+  display: inline-block;
+  opacity: 0;
+  animation: word-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Vertical accent rail that draws down */
+@keyframes rail-grow {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+.animate-rail {
+  transform-origin: top;
+  animation: rail-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+  transform: scaleY(0);
+}
+
+/* Infinite marquee ticker */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+}
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 /* Arrow that slides on hover for CTA links/buttons */
 .cta-arrow {
   display: inline-block;
@@ -211,11 +259,18 @@
   .animate-ken-burns,
   .animate-hero-rise,
   .animate-glow-pulse,
-  .animate-float {
+  .animate-float,
+  .animate-word-rise,
+  .animate-rail,
+  .animate-marquee {
     animation: none;
   }
-  .animate-hero-rise {
+  .animate-hero-rise,
+  .animate-word-rise {
     opacity: 1;
+  }
+  .animate-rail {
+    transform: scaleY(1);
   }
   html {
     scroll-behavior: auto;
