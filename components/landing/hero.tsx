@@ -27,9 +27,9 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-[75vh] md:min-h-[92vh] flex flex-col justify-end overflow-hidden">
+    <section className="relative min-h-[75vh] md:min-h-[92vh] flex flex-col justify-end">
       {/* Background Image with slow cinematic zoom + scroll parallax */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden rounded-none">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-ken-burns"
           style={{
@@ -48,7 +48,6 @@ export function Hero() {
       <div
         className="relative z-10 container mx-auto px-6 md:px-10 pt-[111px] md:pt-0 pb-[226px] md:pb-32"
         style={{
-          transform: `translateY(${offsetY * 0.12}px)`,
           opacity: Math.max(1 - offsetY / 650, 0),
         }}
       >
