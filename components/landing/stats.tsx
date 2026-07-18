@@ -1,47 +1,57 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
 
-function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string }) {
+interface StatRow {
+  value: number
+  suffix: string
+  unit: string
+  label: string
+}
+
+const STATS: StatRow[] = [
+  { value: 10, suffix: "+", unit: "YEARS", label: "Experience" },
+  { value: 500, suffix: "+", unit: "PROJECTS", label: "Completed in Phoenix" },
+  { value: 100, suffix: "%", unit: "LICENSED", label: "& Insured" },
+  { value: 5.0, suffix: "", unit: "RATING", label: "Average client rating" },
+]
+
+function Counter({ end, suffix, decimals = 0 }: { end: number; suffix: string; decimals?: number }) {
   const [count, setCount] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  const hasAnimated = useRef(false)
+  const ref = useRef<HTMLSpanElement>(null)
+  const animated = useRef(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true
-          let start = 0
-          const duration = 2000
-          const increment = end / (duration / 16)
-          
+        if (entries[0].isIntersecting && !animated.current) {
+          animated.current = true
+          const duration = 1600
+          const steps = 60
+          const increment = end / steps
+          let current = 0
           const timer = setInterval(() => {
-            start += increment
-            if (start >= end) {
+            current += increment
+            if (current >= end) {
               setCount(end)
               clearInterval(timer)
             } else {
-              setCount(Math.floor(start))
+              setCount(parseFloat(current.toFixed(decimals)))
             }
-          }, 16)
+          }, duration / steps)
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
+    if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
-  }, [end])
+  }, [end, decimals])
 
   return (
-    <div ref={ref} className="font-serif text-6xl md:text-7xl font-bold text-[#02affd]">
-      {count}{suffix}
-    </div>
+    <span ref={ref}>
+      {decimals > 0 ? count.toFixed(decimals) : count}
+      {suffix}
+    </span>
   )
 }
 
@@ -50,31 +60,145 @@ export function Stats() {
     document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const revealRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("visible")
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (revealRef.current) observer.observe(revealRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center">
-          <AnimatedCounter end={10} suffix="+" />
-          <p className="text-lg text-muted-foreground mt-2 mb-10 font-bold">Years Experience</p>
-          
-          <p className="text-[#02abf8] font-semibold mb-2 text-xl">
-            Choosing a contractor doesn&apos;t have to be stressful.
-          </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
-            No more endless searching, hidden costs, or surprise delays.
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            Here&apos;s why homeowners trust us:
-          </p>
-          
-          <Button 
-            size="lg" 
-            onClick={scrollToForm}
-            className="bg-[rgba(3,171,248,0.9)] hover:bg-[rgba(3,171,248,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
+    <section
+      className="bg-white"
+      style={{ padding: "clamp(80px, 10vw, 160px) 0" }}
+    >
+      <div className="container mx-auto px-6 md:px-10 max-w-5xl">
+
+        {/* Header row: eyebrow right / headline left */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
+          <div>
+            <h2
+              className="headline-stagger"
+              style={{
+                fontSize: "clamp(48px, 7vw, 96px)",
+                color: "#0d0f12",
+              }}
+            >
+              PROVEN
+            </h2>
+            <h2
+              className="headline-stagger"
+              style={{
+                fontSize: "clamp(48px, 7vw, 96px)",
+                marginLeft: "2ch",
+                color: "#0d0f12",
+              }}
+            >
+              RESULTS
+            </h2>
+          </div>
+          <p
+            className="eyebrow md:text-right"
+            style={{ marginBottom: "0.5rem" }}
           >
-            Claim Your Free Estimate
-          </Button>
+            Why homeowners<br />trust us
+          </p>
         </div>
+
+        {/* Stats grid */}
+        <div ref={revealRef} className="reveal">
+          {STATS.map((stat, i) => (
+            <div key={stat.unit}>
+              {/* Row */}
+              <div
+                className="flex items-baseline gap-4 py-8"
+                style={{ borderTop: "1px solid #e3e1dd" }}
+              >
+                {/* Giant numeral */}
+                <div
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "clamp(56px, 7vw, 96px)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.03em",
+                    lineHeight: 1,
+                    color: "#0d0f12",
+                    minWidth: "clamp(120px, 14vw, 200px)",
+                  }}
+                >
+                  <Counter
+                    end={stat.value}
+                    suffix={stat.suffix}
+                    decimals={stat.value % 1 !== 0 ? 1 : 0}
+                  />
+                </div>
+
+                {/* Unit tag */}
+                <span
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "10px",
+                    fontWeight: 700,
+                    letterSpacing: "0.14em",
+                    textTransform: "uppercase",
+                    color: "#103a61",
+                    alignSelf: "flex-start",
+                    marginTop: "0.6rem",
+                    minWidth: "80px",
+                  }}
+                >
+                  {stat.unit}
+                </span>
+
+                {/* Label */}
+                <span
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "14px",
+                    fontWeight: 400,
+                    color: "#6b6b63",
+                    letterSpacing: "0.01em",
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            </div>
+          ))}
+          {/* Bottom rule */}
+          <div style={{ height: "1px", backgroundColor: "#e3e1dd" }} />
+        </div>
+
+        {/* CTA — bottom right */}
+        <div className="flex justify-end mt-10">
+          <button
+            onClick={scrollToForm}
+            className="pill-ghost group"
+            style={{ color: "#103a61", borderColor: "#103a61" }}
+          >
+            <span
+              className="group-hover:text-white transition-colors"
+              style={{ color: "#103a61" }}
+            >
+              Claim Your Free Estimate
+            </span>
+            <span
+              className="group-hover:text-white transition-colors"
+              style={{ color: "#103a61", fontSize: "1.1em", lineHeight: 1 }}
+            >
+              →
+            </span>
+          </button>
+        </div>
+
       </div>
     </section>
   )
