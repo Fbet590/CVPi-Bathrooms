@@ -46,7 +46,7 @@ export function Hero() {
 
       {/* Content — pinned lower-left, left aligned (Koenigsegg style) */}
       <div
-        className="relative z-10 container mx-auto px-6 md:px-10 pt-12 md:pt-0 pb-[120px] md:pb-32"
+        className="relative z-10 container mx-auto px-6 md:px-10 pt-[111px] md:pt-0 pb-[170px] md:pb-32"
         style={{
           transform: `translateY(${offsetY * 0.12}px)`,
           opacity: Math.max(1 - offsetY / 650, 0),
@@ -82,11 +82,14 @@ export function Hero() {
             </h1>
 
             <p
-              className="animate-hero-rise md:text-2xl mb-8 max-w-xl leading-relaxed text-pretty text-white font-light"
+              className="animate-hero-rise md:text-2xl mb-8 max-w-xl leading-relaxed text-pretty text-white font-bold"
               style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.1}s`, fontSize: "20px" }}
             >
-              Vanity, countertops &amp; a custom shower. We handle everything from
-              design to install — you just enjoy the result.
+              - Vanity<br />
+              - Countertops<br />
+              - Custom Shower<br />
+              <br />
+              We handle everything from design to install — you just enjoy the result.
             </p>
 
             <div
