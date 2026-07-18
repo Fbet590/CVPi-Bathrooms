@@ -249,7 +249,7 @@ export function QuoteForm() {
                     fontWeight: "700",
                   }}
                 >
-                  Cabinets, countertops & fixtures
+                  Cabinets, Vanity, Tile, Custom Shower
                 </span>
               </li>
               <li className="flex items-start gap-3" style={{ marginBottom: "12px" }}>
@@ -271,25 +271,7 @@ export function QuoteForm() {
                   Licensed &amp; Insured
                 </span>
               </li>
-              <li className="flex items-start gap-3">
-                <Check
-                  className="flex-shrink-0"
-                  style={{ color: navyAccent, width: "30px", height: "30px", marginTop: "2px" }}
-                  strokeWidth={2.5}
-                />
-                <span
-                  className="leading-relaxed"
-                  style={{
-                    color: "#4a4a42",
-                    fontFamily: "var(--font-poppins, sans-serif)",
-                    letterSpacing: "0.02em",
-                    fontSize: "18px",
-                    fontWeight: "700",
-                  }}
-                >
-                  On-time guarantee
-                </span>
-              </li>
+
             </ul>
           </div>
 
@@ -454,7 +436,8 @@ export function QuoteForm() {
                     border: `1px solid ${navyAccent}`,
                     color: navyAccent,
                     fontFamily: "var(--font-poppins, sans-serif)",
-                    fontSize: "10px",
+                    fontSize: "14px",
+                    fontWeight: "600",
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
                     backgroundColor: "transparent",
