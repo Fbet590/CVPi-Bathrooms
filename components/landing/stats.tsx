@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+import { Reveal } from "./reveal"
 
 function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -48,7 +49,7 @@ export function Stats() {
   return (
     <section className="bg-background" style={{ paddingTop: "64px", paddingBottom: "0" }}>
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="text-center">
+        <Reveal className="text-center">
           <AnimatedCounter end={10} suffix="+" />
           <p className="text-lg text-muted-foreground mt-2 mb-10 font-bold">Years Experience</p>
           
@@ -58,7 +59,7 @@ export function Stats() {
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance" style={{ fontFamily: '"Manrope", sans-serif' }}>
             No more endless searching, hidden costs, or surprise delays.
           </h2>
-        </div>
+        </Reveal>
       </div>
     </section>
   )
