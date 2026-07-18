@@ -90,7 +90,7 @@ export function Hero() {
             </p>
 
             <div
-              className="animate-hero-rise flex flex-col sm:flex-row sm:items-center gap-4"
+              className="animate-hero-rise"
               style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.25}s` }}
             >
               <Button
@@ -101,13 +101,6 @@ export function Hero() {
                 Start Your Free Estimate
                 <ArrowRight className="cta-arrow w-5 h-5 ml-1" />
               </Button>
-              <button
-                onClick={scrollToForm}
-                className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-medium text-lg transition-colors"
-              >
-                See how it works
-                <ArrowRight className="cta-arrow w-4 h-4" />
-              </button>
             </div>
           </div>
         </div>
@@ -138,16 +131,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        className="absolute bottom-24 right-6 md:right-10 z-10 flex flex-col items-center gap-1"
-        style={{ opacity: Math.max(1 - offsetY / 300, 0) }}
-      >
-        <span className="text-xs uppercase tracking-[0.2em] text-white/60 [writing-mode:vertical-rl]">
-          Scroll
-        </span>
-        <ChevronDown className="w-6 h-6 text-white/70 animate-bounce" />
-      </div>
+
     </section>
   )
 }

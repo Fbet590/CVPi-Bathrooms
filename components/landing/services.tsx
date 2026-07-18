@@ -23,7 +23,7 @@ export function Services() {
   }
 
   return (
-    <section className="py-20 bg-muted">
+    <section className="py-20 bg-muted" style={{ paddingBottom: "0" }}>
       <div className="container mx-auto px-4 max-w-6xl">
         <Reveal className="text-center mb-12">
           <p className="text-[#02aaf7] font-semibold mb-2">
@@ -43,7 +43,7 @@ export function Services() {
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service, index) => (
+          {services.slice(1).map((service, index) => (
             <Reveal
               key={service.title}
               delay={index * 120}
@@ -66,18 +66,6 @@ export function Services() {
             </Reveal>
           ))}
         </div>
-
-        <Reveal className="mt-16 text-center">
-          <p className="text-[#05adf9] font-semibold mb-2 text-xl">
-            Ready to Reimagine Your Indoor Space?
-          </p>
-          <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Our Expert Contractor Services
-          </h3>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Our expert team is ready to handle projects of all sizes and complexities, always ensuring meticulous craftsmanship, clear communication, and results that exceed your expectations.
-          </p>
-        </Reveal>
       </div>
     </section>
   )
