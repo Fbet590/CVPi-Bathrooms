@@ -39,7 +39,7 @@ function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string })
   }, [end])
 
   return (
-    <div ref={ref} className="font-serif text-6xl md:text-7xl font-bold text-[#02affd]">
+    <div ref={ref} className="text-6xl md:text-7xl font-bold text-[#02affd]" style={{ fontFamily: '"Manrope", sans-serif' }}>
       {count}{suffix}
     </div>
   )
@@ -51,29 +51,18 @@ export function Stats() {
   }
 
   return (
-    <section className="py-16 bg-background">
+    <section className="bg-background" style={{ paddingTop: "64px", paddingBottom: "0" }}>
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center">
           <AnimatedCounter end={10} suffix="+" />
           <p className="text-lg text-muted-foreground mt-2 mb-10 font-bold">Years Experience</p>
           
-          <p className="text-[#02abf8] font-semibold mb-2 text-xl">
+          <p className="text-[#02abf8] font-bold mb-2" style={{ fontFamily: '"Manrope", sans-serif', fontSize: "24px" }}>
             Choosing a contractor doesn&apos;t have to be stressful.
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance" style={{ fontFamily: '"Manrope", sans-serif' }}>
             No more endless searching, hidden costs, or surprise delays.
           </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            Here&apos;s why homeowners trust us:
-          </p>
-          
-          <Button 
-            size="lg" 
-            onClick={scrollToForm}
-            className="bg-[rgba(3,171,248,0.9)] hover:bg-[rgba(3,171,248,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
-          >
-            Claim Your Free Estimate
-          </Button>
         </div>
       </div>
     </section>

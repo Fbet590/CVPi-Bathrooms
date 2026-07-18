@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter, Poppins } from 'next/font/google'
+import { Cormorant_Garamond, Inter, Poppins, Manrope, Libre_Franklin, Lora, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
@@ -21,6 +21,30 @@ const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   variable: '--font-poppins',
+  display: 'swap'
+});
+
+const manrope = Manrope({ 
+  subsets: ["latin"],
+  variable: '--font-manrope',
+  display: 'swap'
+});
+
+const libreF = Libre_Franklin({ 
+  subsets: ["latin"],
+  variable: '--font-libre-franklin',
+  display: 'swap'
+});
+
+const lora = Lora({ 
+  subsets: ["latin"],
+  variable: '--font-lora',
+  display: 'swap'
+});
+
+const spaceG = Space_Grotesk({ 
+  subsets: ["latin"],
+  variable: '--font-space-grotesk',
   display: 'swap'
 });
 
@@ -79,7 +103,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body className={`${cormorant.variable} ${inter.variable} ${poppins.variable} font-sans antialiased`}>
+      <body className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${manrope.variable} ${libreF.variable} ${lora.variable} ${spaceG.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

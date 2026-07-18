@@ -23,7 +23,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center max-w-4xl">
         <h1 className="font-[family-name:var(--font-poppins)] text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 text-balance">
-          $24K Flat. New Bathroom. Cabinets, Countertops & Appliances Included. Done.
+          $24K Flat. New Bathroom. Vanity, Countertops & Custom Shower. Done.
         </h1>
         <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
           We handle everything from design to install — you just enjoy the result.

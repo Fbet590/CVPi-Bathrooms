@@ -23,7 +23,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-background">
+    <section className="bg-background" style={{ paddingTop: "64px", paddingBottom: "80px" }}>
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="text-center mb-12">
           <p className="text-[#02acfa] font-semibold mb-2 text-xl">
