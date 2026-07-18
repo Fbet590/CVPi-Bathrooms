@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Inter, Poppins, Manrope, Libre_Franklin, Lora, Space_Grotesk } from 'next/font/google'
+import { Cormorant_Garamond, Inter, Poppins, Manrope, Libre_Franklin, Lora, Space_Grotesk, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
 import './globals.css'
@@ -45,6 +45,13 @@ const lora = Lora({
 const spaceG = Space_Grotesk({ 
   subsets: ["latin"],
   variable: '--font-space-grotesk',
+  display: 'swap'
+});
+
+const montserrat = Montserrat({ 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: '--font-montserrat',
   display: 'swap'
 });
 
@@ -103,7 +110,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body suppressHydrationWarning className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${manrope.variable} ${libreF.variable} ${lora.variable} ${spaceG.variable} font-sans antialiased`}>
+      <body suppressHydrationWarning className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${manrope.variable} ${libreF.variable} ${lora.variable} ${spaceG.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
