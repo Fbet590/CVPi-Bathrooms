@@ -27,7 +27,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-[92vh] flex flex-col justify-end overflow-hidden">
+    <section className="relative min-h-[75vh] md:min-h-[92vh] flex flex-col justify-end overflow-hidden">
       {/* Background Image with slow cinematic zoom + scroll parallax */}
       <div className="absolute inset-0 overflow-hidden">
         <div
@@ -46,7 +46,7 @@ export function Hero() {
 
       {/* Content — pinned lower-left, left aligned (Koenigsegg style) */}
       <div
-        className="relative z-10 container mx-auto px-6 md:px-10 pb-28 md:pb-32"
+        className="relative z-10 container mx-auto px-6 md:px-10 pb-12 md:pb-32"
         style={{
           transform: `translateY(${offsetY * 0.12}px)`,
           opacity: Math.max(1 - offsetY / 650, 0),
