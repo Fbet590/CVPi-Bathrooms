@@ -13,6 +13,7 @@ const cormorant = Cormorant_Garamond({
 
 const inter = Inter({ 
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
   variable: '--font-inter',
   display: 'swap'
 });
@@ -53,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-white">
       <head>
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
