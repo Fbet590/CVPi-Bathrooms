@@ -77,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
@@ -103,7 +103,7 @@ export default function RootLayout({
           />
         </noscript>
       </head>
-      <body className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${manrope.variable} ${libreF.variable} ${lora.variable} ${spaceG.variable} font-sans antialiased`}>
+      <body suppressHydrationWarning className={`${cormorant.variable} ${inter.variable} ${poppins.variable} ${manrope.variable} ${libreF.variable} ${lora.variable} ${spaceG.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

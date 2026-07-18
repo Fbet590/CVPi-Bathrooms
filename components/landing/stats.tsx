@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Button } from "@/components/ui/button"
 
 function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string }) {
   const [count, setCount] = useState(0)
@@ -46,10 +45,6 @@ function AnimatedCounter({ end, suffix = "" }: { end: number; suffix?: string })
 }
 
 export function Stats() {
-  const scrollToForm = () => {
-    document.getElementById("quote-form")?.scrollIntoView({ behavior: "smooth" })
-  }
-
   return (
     <section className="bg-background" style={{ paddingTop: "64px", paddingBottom: "0" }}>
       <div className="container mx-auto px-4 max-w-4xl">
