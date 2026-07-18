@@ -75,14 +75,6 @@ export function Hero() {
           className="absolute bottom-0 left-0 right-0 px-6 md:px-10 lg:px-16"
           style={{ paddingBottom: "clamp(48px, 8vw, 120px)" }}
         >
-          {/* Eyebrow — upper-right of hero */}
-          <p
-            className="eyebrow absolute"
-            style={{ top: "clamp(88px, 12vw, 140px)", right: "clamp(24px, 5vw, 80px)" }}
-          >
-            Bathroom Remodel
-          </p>
-
           {/* Headline — staggered two-line indent */}
           <div
             ref={(el) => addRevealRef(el as HTMLDivElement, 0)}

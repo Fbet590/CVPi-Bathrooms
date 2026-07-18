@@ -82,35 +82,27 @@ export function Stats() {
     >
       <div className="container mx-auto px-6 md:px-10 max-w-5xl">
 
-        {/* Header row: eyebrow right / headline left */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-          <div>
-            <h2
-              className="headline-stagger"
-              style={{
-                fontSize: "clamp(48px, 7vw, 96px)",
-                color: "#0d0f12",
-              }}
-            >
-              PROVEN
-            </h2>
-            <h2
-              className="headline-stagger"
-              style={{
-                fontSize: "clamp(48px, 7vw, 96px)",
-                marginLeft: "2ch",
-                color: "#0d0f12",
-              }}
-            >
-              RESULTS
-            </h2>
-          </div>
-          <p
-            className="eyebrow md:text-right"
-            style={{ marginBottom: "0.5rem" }}
+        {/* Header row: headline left */}
+        <div className="mb-16">
+          <h2
+            className="headline-stagger"
+            style={{
+              fontSize: "clamp(48px, 7vw, 96px)",
+              color: "#0d0f12",
+            }}
           >
-            Why homeowners<br />trust us
-          </p>
+            PROVEN
+          </h2>
+          <h2
+            className="headline-stagger"
+            style={{
+              fontSize: "clamp(48px, 7vw, 96px)",
+              marginLeft: "2ch",
+              color: "#0d0f12",
+            }}
+          >
+            RESULTS
+          </h2>
         </div>
 
         {/* Stats grid */}

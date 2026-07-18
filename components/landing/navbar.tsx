@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Menu, X } from "lucide-react"
 
@@ -27,27 +26,15 @@ export function Navbar() {
         borderBottom: scrolled ? "1px solid rgba(255,255,255,0.08)" : "none",
       }}
     >
-      <div className="container mx-auto px-6 md:px-10">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <div className="relative h-10 w-10 md:h-12 md:w-12 flex-shrink-0">
-            <Image
-              src="/images/logo.png"
-              alt="CV Remodeling Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-
-          {/* Hamburger */}
-          <button
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-white transition-opacity hover:opacity-70"
-          >
-            {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+      <div className="container mx-auto px-6 md:px-10 flex justify-end h-16 md:h-20 items-center">
+        {/* Hamburger only */}
+        <button
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="text-white transition-opacity hover:opacity-70"
+        >
+          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        </button>
       </div>
 
       {/* Mobile / full-screen menu drawer */}
