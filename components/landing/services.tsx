@@ -1,6 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { ArrowRight } from "lucide-react"
+import { Reveal } from "./reveal"
 
 const services = [
   {
@@ -23,7 +25,7 @@ export function Services() {
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="text-[#02aaf7] font-semibold mb-2">
             Ready to Reimagine Your Home&apos;s Interior?
           </p>
@@ -33,22 +35,26 @@ export function Services() {
           <Button 
             size="lg" 
             onClick={scrollToForm}
-            className="bg-[rgba(1,172,250,0.9)] hover:bg-[rgba(1,172,250,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
+            className="group bg-[rgba(1,172,250,0.9)] hover:bg-[rgba(1,172,250,0.8)] text-primary-foreground px-8 py-6 text-lg font-semibold"
           >
             Get a Free Quote
+            <ArrowRight className="cta-arrow w-5 h-5 ml-1" />
           </Button>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {services.map((service) => (
-            <div 
+          {services.map((service, index) => (
+            <Reveal
               key={service.title}
-              className="bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              delay={index * 120}
+              className="group bg-card rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover-lift"
             >
-              <div 
-                className="h-64 bg-cover bg-center"
-                style={{ backgroundImage: `url('${service.image}')` }}
-              />
+              <div className="h-64 overflow-hidden">
+                <div 
+                  className="h-full w-full bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-110"
+                  style={{ backgroundImage: `url('${service.image}')` }}
+                />
+              </div>
               <div className="p-6">
                 <h3 className="font-serif text-2xl font-bold text-card-foreground mb-3">
                   {service.title}
@@ -57,11 +63,11 @@ export function Services() {
                   {service.description}
                 </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <Reveal className="mt-16 text-center">
           <p className="text-[#05adf9] font-semibold mb-2 text-xl">
             Ready to Reimagine Your Indoor Space?
           </p>
@@ -71,7 +77,7 @@ export function Services() {
           <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Our expert team is ready to handle projects of all sizes and complexities, always ensuring meticulous craftsmanship, clear communication, and results that exceed your expectations.
           </p>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

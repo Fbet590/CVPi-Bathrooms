@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import { X, ChevronLeft, ChevronRight, MapPin } from "lucide-react"
+import { Reveal } from "./reveal"
 
 const galleryImages = [
   {
@@ -70,20 +71,21 @@ export function Gallery() {
   return (
     <section className="py-20 bg-muted">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground mb-4">
             Our Recent Projects
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Browse through some of our stunning kitchen and bathroom transformations
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {galleryImages.map((image, index) => (
-            <div 
+            <Reveal
               key={index}
-              className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow"
+              delay={(index % 3) * 120}
+              className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl hover-lift"
             >
               <button
                 onClick={() => openLightbox(index)}
@@ -109,7 +111,7 @@ export function Gallery() {
                   <span>{image.city}</span>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

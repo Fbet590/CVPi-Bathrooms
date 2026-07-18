@@ -123,8 +123,71 @@
   }
   html {
     font-size: 19px; /* Base 16px + 3px */
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* ---- Motion (Koenigsegg-inspired dynamism) ---- */
+
+/* Cinematic slow zoom for hero imagery */
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.12);
+  }
+}
+.animate-ken-burns {
+  animation: ken-burns 18s ease-out forwards;
+}
+
+/* Staggered entrance for hero content on load */
+@keyframes hero-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-hero-rise {
+  opacity: 0;
+  animation: hero-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Arrow that slides on hover for CTA links/buttons */
+.cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.group:hover .cta-arrow {
+  transform: translateX(6px);
+}
+
+/* Subtle lift used on cards */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns,
+  .animate-hero-rise {
+    animation: none;
+  }
+  .animate-hero-rise {
+    opacity: 1;
+  }
+  html {
+    scroll-behavior: auto;
   }
 }

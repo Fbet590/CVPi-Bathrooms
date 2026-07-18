@@ -1,4 +1,5 @@
 import { Star } from "lucide-react"
+import { Reveal } from "./reveal"
 
 const testimonials = [
   {
@@ -25,20 +26,21 @@ export function Testimonials() {
   return (
     <section className="bg-background" style={{ paddingTop: "64px", paddingBottom: "80px" }}>
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-12">
+        <Reveal className="text-center mb-12">
           <p className="text-[#02acfa] font-semibold mb-2 text-xl">
             Don&apos;t Just Take Our Word For It...
           </p>
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
             Here&apos;s What Our Past Clients Had To Say
           </h2>
-        </div>
+        </Reveal>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial) => (
-            <div 
+          {testimonials.map((testimonial, index) => (
+            <Reveal 
               key={testimonial.name}
-              className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+              delay={index * 120}
+              className="bg-card rounded-xl p-6 shadow-md hover:shadow-xl hover-lift"
             >
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
@@ -52,7 +54,7 @@ export function Testimonials() {
                 <p className="font-semibold text-card-foreground">{testimonial.name}</p>
                 <p className="text-sm text-muted-foreground">{testimonial.location}</p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
