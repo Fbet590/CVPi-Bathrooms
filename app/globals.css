@@ -145,6 +145,34 @@
   animation: ken-burns 18s ease-out forwards;
 }
 
+/* Soft pulsing accent glow */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.15);
+  }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 6s ease-in-out infinite;
+}
+
+/* Gentle float used on badges/icons */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
 /* Staggered entrance for hero content on load */
 @keyframes hero-rise {
   0% {
@@ -181,7 +209,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .animate-ken-burns,
-  .animate-hero-rise {
+  .animate-hero-rise,
+  .animate-glow-pulse,
+  .animate-float {
     animation: none;
   }
   .animate-hero-rise {
