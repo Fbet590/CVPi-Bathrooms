@@ -160,7 +160,7 @@ export function QuoteForm() {
   const navyAccent = "#103a61"
 
   return (
-    <section id="quote-form" className="relative z-20" style={{ backgroundColor: "#0d0f12", padding: "clamp(80px, 10vw, 120px) 0" }}>
+    <section id="quote-form" className="relative -mt-32 z-20 pb-24 bg-muted pt-4">
       <div className="container mx-auto px-4 max-w-xl">
 
         {/* Panel */}

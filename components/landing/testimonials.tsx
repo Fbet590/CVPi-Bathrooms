@@ -1,105 +1,60 @@
+import { Star } from "lucide-react"
+
 const testimonials = [
   {
     name: "Sarah M.",
     location: "Scottsdale, AZ",
-    text: "CV Remodeling transformed our outdated bathroom into a stunning modern space. The team was professional, communicated every step, and finished on time. We couldn't be happier.",
+    text: "CV Remodeling & Outdoor Living transformed our outdated kitchen into a stunning modern space. The team was professional, communicated every step, and finished on time. We couldn't be happier!",
+    rating: 5
   },
   {
     name: "Michael R.",
     location: "Phoenix, AZ",
-    text: "After getting quotes from several contractors, we chose CV for their transparency and expertise. Our bathroom renovation exceeded expectations. Highly recommend.",
+    text: "After getting quotes from several contractors, we chose CV for their transparency and expertise. Our bathroom renovation exceeded expectations. Highly recommend!",
+    rating: 5
   },
   {
     name: "Jennifer L.",
     location: "Tempe, AZ",
     text: "The attention to detail was incredible. They helped us select the perfect materials within our budget and the craftsmanship is top-notch. A truly professional experience.",
-  },
+    rating: 5
+  }
 ]
 
 export function Testimonials() {
   return (
-    <section
-      className="bg-white"
-      style={{ padding: "clamp(80px, 10vw, 160px) 0" }}
-    >
-      <div className="container mx-auto px-6 md:px-10 max-w-6xl">
-
-        {/* Header */}
-        <div className="mb-14">
-          <p className="eyebrow mb-3">Client Reviews</p>
-          <h2
-            className="headline-stagger"
-            style={{ fontSize: "clamp(36px, 5vw, 64px)", color: "#0d0f12" }}
-          >
-            DON&apos;T JUST TAKE
-          </h2>
-          <h2
-            className="headline-stagger"
-            style={{
-              fontSize: "clamp(36px, 5vw, 64px)",
-              color: "#0d0f12",
-              marginLeft: "2ch",
-            }}
-          >
-            OUR WORD FOR IT
+    <section className="py-20 bg-background">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-12">
+          <p className="text-[#02acfa] font-semibold mb-2 text-xl">
+            Don&apos;t Just Take Our Word For It...
+          </p>
+          <h2 className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+            Here&apos;s What Our Past Clients Had To Say
           </h2>
         </div>
 
-        {/* Three columns with hairline vertical dividers */}
-        <div className="grid grid-cols-1 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <div
-              key={t.name}
-              className="flex flex-col py-8 md:py-0 md:px-8"
-              style={{
-                borderTop: "1px solid #e3e1dd",
-                borderLeft: i > 0 ? "1px solid #e3e1dd" : undefined,
-              }}
+        <div className="grid md:grid-cols-3 gap-8">
+          {testimonials.map((testimonial) => (
+            <div 
+              key={testimonial.name}
+              className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
             >
-              {/* Mobile: top border, Desktop: left border between cols */}
-              <p
-                style={{
-                  fontFamily: "var(--font-cormorant)",
-                  fontSize: "20px",
-                  fontWeight: 400,
-                  lineHeight: 1.5,
-                  color: "#0d0f12",
-                  marginBottom: "1.5rem",
-                  flex: 1,
-                }}
-              >
-                &ldquo;{t.text}&rdquo;
+              <div className="flex gap-1 mb-4">
+                {[...Array(testimonial.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <p className="text-card-foreground mb-4 leading-relaxed">
+                &ldquo;{testimonial.text}&rdquo;
               </p>
-              <div>
-                <p
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "10px",
-                    fontWeight: 700,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    color: "#0d0f12",
-                  }}
-                >
-                  {t.name}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "10px",
-                    letterSpacing: "0.12em",
-                    textTransform: "uppercase",
-                    color: "#6b6b63",
-                    marginTop: "2px",
-                  }}
-                >
-                  {t.location}
-                </p>
+              <div className="border-t border-border pt-4">
+                <p className="font-semibold text-card-foreground">{testimonial.name}</p>
+                <p className="text-sm text-muted-foreground">{testimonial.location}</p>
               </div>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   )
