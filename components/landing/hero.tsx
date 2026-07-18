@@ -68,12 +68,12 @@ export function Hero() {
             </p>
 
             {/* Headline — word-by-word rise */}
-            <h1 className="font-[family-name:var(--font-poppins)] text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 text-balance break-words">
+            <h1 className="font-[family-name:var(--font-poppins)] text-[2rem] sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 text-balance break-words" style={{ fontSize: "48px" }}>
               {HEADLINE_WORDS.map((word, i) => (
                 <span key={i} className="inline-block overflow-hidden align-bottom mr-[0.28em]">
                   <span
                     className="animate-word-rise"
-                    style={{ animationDelay: `${0.15 + i * 0.12}s`, fontSize: "48px" }}
+                    style={{ animationDelay: `${0.15 + i * 0.12}s`, fontSize: "52px" }}
                   >
                     {word}
                   </span>
@@ -82,8 +82,8 @@ export function Hero() {
             </h1>
 
             <p
-              className="animate-hero-rise md:text-2xl mb-8 max-w-xl leading-relaxed text-pretty text-white font-bold"
-              style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.1}s`, fontSize: "20px" }}
+              className="animate-hero-rise md:text-2xl mb-8 max-w-xl leading-relaxed text-pretty text-white"
+              style={{ animationDelay: `${0.15 + HEADLINE_WORDS.length * 0.12 + 0.1}s`, fontSize: "20px", fontFamily: "var(--font-poppins, sans-serif)", fontWeight: "500" }}
             >
               - Vanity<br />
               - Countertops<br />
